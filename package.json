@@ -1,0 +1,15 @@
+{
+  "main": "lib/binding.js",
+  "dependencies": {
+    "node-addon-api": "^1.1.0"
+  },
+  "scripts": {
+    "test": "node --napi-modules ./test/test_binding.js"
+  },
+  "gypfile": true,
+  "name": "cpicp-module",
+  "version": "1.0.0",
+  "description": "Rotinas para executar o CP-ICP",
+  "author": "Daniel Araújo Chaves Souza",
+  "license": "ISC"
+}
