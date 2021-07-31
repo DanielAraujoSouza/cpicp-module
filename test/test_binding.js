@@ -1,33 +1,36 @@
-const CloudPartitioning = require("../lib/binding.js");
-const assert = require("assert");
+const test = require('tape')
+const cpicp = require('../lib/binding.js')
+const utils = require('./utils')
 
-assert(CloudPartitioning, "The expected function is undefined");
+console.log(cpicp)
 
-function testBasic() {
-    const numPartitions = 3
-    const axis = 'x'
-    const cloud = {
-        width: 5,
-        points: []
-    }
+test('Cloud Partitioning', async (t) => {
+  t.assert(cpicp.CloudPartitioning, 'CloudPartitioning function defined')
 
-    for (let i = 0; i < cloud.width; i++ ) {
-        cloud.points.push({
-            x: Math.random()*1000,
-            y: Math.random()*1000,
-            z: Math.random()*1000
-        })
-    }
+  const numPartitions = 3
+  const axis = 'x'
+  const cloud = utils.generateCloud(5)
 
-    CloudPartitioning(cloud, numPartitions, axis).then(result => {
-        const resultWidth = result.reduce((sum, e) => sum += e.width, 0);
-        assert.strictEqual(resultWidth, cloud.width, "Sum of the resulting width is greater than the input width");
-        result.forEach(e => {
-            assert.strictEqual(e.points.length, e.width, "Subcloud with width different from the amount of points");
-        });
-    });
-}
+  const loaded = await cpicp.CloudPartitioning(cloud, numPartitions, axis)
+  const resultWidth = loaded.reduce((sum, e) => (sum += e.numpts), 0)
+  t.deepEqual(resultWidth, cloud.numpts, 'Correctly partitioned asynchronously')
 
-assert.doesNotThrow(testBasic, undefined, "testBasic threw an expection");
+  t.assert(
+    cpicp.CloudPartitioningSync,
+    'CloudPartitioningSync function defined'
+  )
 
-console.log("Tests passed- everything looks OK!");
+  const loadedSync = await cpicp.CloudPartitioningSync(
+    cloud,
+    numPartitions,
+    axis
+  )
+  const resultWidthSync = loaded.reduce((sum, e) => (sum += e.numpts), 0)
+  t.deepEqual(
+    resultWidthSync,
+    cloud.numpts,
+    'Correctly partitioned synchronously'
+  )
+
+  t.end()
+})
