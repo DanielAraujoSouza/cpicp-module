@@ -77,4 +77,5 @@ typings/
 .fusebox/
 
 build/
+.vscode
 *.code-workspace
