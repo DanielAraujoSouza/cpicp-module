@@ -1,4 +1,4 @@
-Esse módulo nativo adapta as rotinas de particionamento de nuvens de pontos 3D, presentes no algoritmo de registro _Cloud Partitioning for Iterative Closest Point_(CP-ICP), desenvolvida em **C++**, ao ambiente javascript **Node.JS**. Esse módulo é desenvolvido utilizando o módulo [_node-addon-api_](https://github.com/nodejs/node-addon-api) que fornece um modelo de objeto **C++** para a API de desenvolvimento de complementos nativos do projeto Node.JS, [Node-API](https://nodejs.org/api/n-api.html). Com o módulo CP-ICP, é possivel realiza o particionamento de nuvens de pontos 3D de forma fácil sem abrir mão do desempenho proporcionado por uma linguagem de programação de mais baixo nível.
+Esse módulo nativo adapta as rotinas de particionamento de nuvens de pontos 3D, presentes no algoritmo de registro _Cloud Partitioning for Iterative Closest Point_ (CP-ICP), desenvolvida em **C++**, ao ambiente javascript **Node.JS**. Esse módulo é desenvolvido utilizando o módulo [_node-addon-api_](https://github.com/nodejs/node-addon-api) que fornece um modelo de objeto **C++** para a API de desenvolvimento de complementos nativos do projeto Node.JS, [Node-API](https://nodejs.org/api/n-api.html). Com o módulo CP-ICP, é possivel realiza o particionamento de nuvens de pontos 3D de forma fácil sem abrir mão do desempenho proporcionado por uma linguagem de programação de mais baixo nível.
 
 ## Índice
 
@@ -26,7 +26,7 @@ Esse módulo nativo adapta as rotinas de particionamento de nuvens de pontos 3D,
 
 > **OBS:** Se ainda não possuir nenhuma versão do Node.JS [faça o download e instale](https://nodejs.org/en/download/).
 
-Em seguida faça o download desse projeto, acesse o diretório do projeto, a partir do terminal, e execute o comando abaixo para instalar, de forma global, o módulo **node-gyp**, responsável por compilar o módulo nativo
+Em seguida faça o download desse projeto, acesse o diretório do projeto, a partir do terminal, e execute o comando abaixo para instalar, de forma global, o módulo **node-gyp**, responsável por compilar o módulo nativo.
 
 > **OBS:** Para o que **node-gyp** consiga compilar seu código corretamente, o sistema operacional precisa ter as ferramentas de compilação adequadas instaladas. Verifique as dependências, para o seu sistema operacional, no [repositório do projeto node-gyp](https://github.com/nodejs/node-gyp#installation).
 
